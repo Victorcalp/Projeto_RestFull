@@ -3,13 +3,13 @@ using Projeto_RestFull.Model.Context;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Projeto_RestFull.Business.Implementations
+namespace Projeto_RestFull.Repository.Implementations
 {
-    public class PersonImplementation : IPerson
+    public class PersonRepositoryImplementation : IPersonRepository
     {
         private readonly MySQLContext _context;
 
-        public PersonImplementation(MySQLContext context)
+        public PersonRepositoryImplementation(MySQLContext context)
         {
             _context = context;
         }

@@ -5,9 +5,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Projeto_RestFull.Repository;
+using Projeto_RestFull.Repository.Implementations;
+using Projeto_RestFull.Model.Context;
 using Projeto_RestFull.Business;
 using Projeto_RestFull.Business.Implementations;
-using Projeto_RestFull.Model.Context;
 
 namespace Projeto_RestFull
 {
@@ -30,8 +32,12 @@ namespace Projeto_RestFull
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection, ServerVersion.Parse("8.0.31 - mysql")));
 
+            //API Versioning
+            services.AddApiVersioning();
+
             //Injetando indepedencia
-            services.AddScoped<IPerson, PersonImplementation>();
+            services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
+            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
 
             services.AddSwaggerGen(c =>
             {
