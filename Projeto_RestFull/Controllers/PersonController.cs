@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Projeto_RestFull.Repository;
 using Projeto_RestFull.Model;
 using Projeto_RestFull.Business;
 

@@ -64,7 +64,7 @@ namespace Projeto_RestFull.Repository.Implementations
             return _context.Books.ToList();
         }
 
-        public Book ListById(long id)
+        public Book FiendById(long id)
         {
             return _context.Books.FirstOrDefault(x => x.Id == id);
         }

@@ -31,9 +31,9 @@ namespace Projeto_RestFull.Business.Implementations
             return _repository.FiendAllBook();
         }
 
-        public Book ListById(long id)
+        public Book FiendById(long id)
         {
-            return _repository.ListById(id);
+            return _repository.FiendById(id);
         }
     }
 }
