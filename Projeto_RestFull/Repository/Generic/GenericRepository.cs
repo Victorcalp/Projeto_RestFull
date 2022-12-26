@@ -17,7 +17,6 @@ namespace Projeto_RestFull.Repository.Generic
             _context = context;
             dataset = _context.Set<T>();
         }
-
         public T Create(T item)
         {
             try
@@ -28,28 +27,22 @@ namespace Projeto_RestFull.Repository.Generic
             }
             catch (System.Exception)
             {
-
                 throw;
             }
         }
         public T Update(T item)
         {
-            var result = dataset.SingleOrDefault(x => x.Id.Equals(item.Id));
-
-            if (!Exists(item.Id)) new Person();
             try
             {
-                dataset.Update(result);
+                dataset.Update(item);
                 _context.SaveChanges();
-                return result;
+                return item;
             }
             catch (System.Exception)
             {
-
                 throw;
             }
         }
-
         public void Delete(long id)
         {
             var result = dataset.SingleOrDefault(x => x.Id.Equals(id));
@@ -62,16 +55,13 @@ namespace Projeto_RestFull.Repository.Generic
             }
             catch (System.Exception)
             {
-
                 throw;
             }
         }
-
         public List<T> FiendAll()
         {
             return dataset.ToList();
         }
-
         public T FiendByID(long id)
         {
             return dataset.SingleOrDefault(x => x.Id.Equals(id));

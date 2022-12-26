@@ -5,13 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Projeto_RestFull.Repository;
-using Projeto_RestFull.Repository.Implementations;
 using Projeto_RestFull.Model.Context;
 using Projeto_RestFull.Business;
 using Projeto_RestFull.Business.Implementations;
 using Serilog;
-using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using MySqlConnector;
 using System.Collections.Generic;
@@ -51,7 +48,6 @@ namespace Projeto_RestFull
 
             //Injetando indepedencia
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
-            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
 
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
 

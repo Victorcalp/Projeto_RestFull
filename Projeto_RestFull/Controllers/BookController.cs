@@ -46,8 +46,9 @@ namespace Projeto_RestFull.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult FiendById(long id) { 
-        return Ok(_bookBusiness.FiendByID(id));
+        public IActionResult FiendById(long id)
+        {
+            return Ok(_bookBusiness.FiendByID(id));
         }
     }
 }
