@@ -24,7 +24,6 @@ namespace Projeto_RestFull.Repository.Implementations
             }
             catch (System.Exception)
             {
-
                 throw;
             }
         }
@@ -42,7 +41,6 @@ namespace Projeto_RestFull.Repository.Implementations
             }
             catch (System.Exception)
             {
-
                 throw;
             }
         }
@@ -67,7 +65,6 @@ namespace Projeto_RestFull.Repository.Implementations
             }
             catch (System.Exception)
             {
-
                 throw;
             }
         }

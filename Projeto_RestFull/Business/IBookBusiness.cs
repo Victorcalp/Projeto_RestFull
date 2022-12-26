@@ -1,4 +1,5 @@
 ﻿using Projeto_RestFull.Model;
+using Projeto_RestFull.Model.Base;
 using System.Collections.Generic;
 
 namespace Projeto_RestFull.Business
@@ -8,7 +9,7 @@ namespace Projeto_RestFull.Business
         Book Create(Book book);
         Book Update(Book book);
         void Delete(long id);
-        Book FiendById(long id);
-        List<Book> FiendAllBook();
+        Book FiendByID(long id);
+        List<Book> FiendAll();
     }
 }

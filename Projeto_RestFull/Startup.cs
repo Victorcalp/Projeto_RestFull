@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using MySqlConnector;
 using System.Collections.Generic;
+using Projeto_RestFull.Repository.Generic;
 
 namespace Projeto_RestFull
 {
@@ -51,9 +52,10 @@ namespace Projeto_RestFull
             //Injetando indepedencia
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
             services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
-            
+
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
-            services.AddScoped<IBookRepository, BookRepositoryImplementation>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
             services.AddSwaggerGen(c =>
             {
@@ -89,7 +91,7 @@ namespace Projeto_RestFull
                 var evolveConnection = new MySqlConnection(connection);
                 var evolve = new Evolve.Evolve(evolveConnection, msg => Log.Information(msg))
                 {
-                    Locations = new List<string> {"db/migrations", "db/dataset" },
+                    Locations = new List<string> { "db/migrations", "db/dataset" },
                     IsEraseDisabled = true,
                 };
                 evolve.Migrate();

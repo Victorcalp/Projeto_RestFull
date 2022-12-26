@@ -42,12 +42,12 @@ namespace Projeto_RestFull.Controllers
         [HttpGet]
         public IActionResult FiendAll()
         {
-            return Ok(_bookBusiness.FiendAllBook());
+            return Ok(_bookBusiness.FiendAll());
         }
 
         [HttpGet("{id}")]
         public IActionResult FiendById(long id) { 
-        return Ok(_bookBusiness.FiendById(id));
+        return Ok(_bookBusiness.FiendByID(id));
         }
     }
 }

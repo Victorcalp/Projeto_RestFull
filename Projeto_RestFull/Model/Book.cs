@@ -1,14 +1,12 @@
-﻿using System;
+﻿using Projeto_RestFull.Model.Base;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Projeto_RestFull.Model
 {
     [Table("books")]
-    public class Book
+    public class Book : BaseEntity
     {
-        [Column("id")]
-        public long Id { get; set; }
-
         [Column("author")]
         public string Author { get; set; }
 

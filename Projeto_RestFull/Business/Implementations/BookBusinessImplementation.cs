@@ -1,14 +1,15 @@
 ﻿using Projeto_RestFull.Model;
 using Projeto_RestFull.Repository;
+using Projeto_RestFull.Repository.Generic;
 using System.Collections.Generic;
 
 namespace Projeto_RestFull.Business.Implementations
 {
     public class BookBusinessImplementation : IBookBusiness
     {
-        private readonly IBookRepository _repository;
+        private readonly IRepository<Book> _repository;
 
-        public BookBusinessImplementation(IBookRepository repository)
+        public BookBusinessImplementation(IRepository<Book> repository)
         {
             _repository = repository;
         }
@@ -26,14 +27,14 @@ namespace Projeto_RestFull.Business.Implementations
             return _repository.Update(book);
         }
 
-        public List<Book> FiendAllBook()
+        public List<Book> FiendAll()
         {
-            return _repository.FiendAllBook();
+            return _repository.FiendAll();
         }
 
-        public Book FiendById(long id)
+        public Book FiendByID(long id)
         {
-            return _repository.FiendById(id);
+            return _repository.FiendByID(id);
         }
     }
 }

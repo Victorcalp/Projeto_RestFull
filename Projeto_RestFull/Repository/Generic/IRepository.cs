@@ -1,4 +1,5 @@
-﻿using Projeto_RestFull.Model.Base;
+﻿using Projeto_RestFull.Model;
+using Projeto_RestFull.Model.Base;
 using System.Collections.Generic;
 
 namespace Projeto_RestFull.Repository.Generic
