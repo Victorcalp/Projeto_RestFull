@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Projeto_RestFull.Business;
-using Projeto_RestFull.Model;
+using Projeto_RestFull.Data.VO;
 
 namespace Projeto_RestFull.Controllers
 {
@@ -19,14 +19,14 @@ namespace Projeto_RestFull.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Book book)
+        public IActionResult Create([FromBody] BookVO book)
         {
             var result = _bookBusiness.Create(book);
             return Ok(result);
         }
 
         [HttpPut]
-        public IActionResult Update([FromBody] Book book)
+        public IActionResult Update([FromBody] BookVO book)
         {
             var result = _bookBusiness.Update(book);
             return Ok(result);

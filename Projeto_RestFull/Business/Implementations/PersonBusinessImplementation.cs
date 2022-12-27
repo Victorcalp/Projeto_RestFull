@@ -1,4 +1,6 @@
-﻿using Projeto_RestFull.Model;
+﻿using Projeto_RestFull.Data.Converter.Implementations;
+using Projeto_RestFull.Data.VO;
+using Projeto_RestFull.Model;
 using Projeto_RestFull.Repository.Generic;
 using System.Collections.Generic;
 
@@ -7,30 +9,36 @@ namespace Projeto_RestFull.Business.Implementations
     public class PersonBusinessImplementation : IPersonBusiness
     {
         private readonly IRepository<Person> _repository;
+        private readonly PersonConverter _converter;
 
         public PersonBusinessImplementation(IRepository<Person> repository)
         {
             _repository = repository;
+            _converter = new PersonConverter();
         }
-        public Person Create(Person person)
+        public PersonVO Create(PersonVO person)
         {
-            return _repository.Create(person);
+            var personEntity = _converter.Parse(person); //converte de VO para entidade
+            personEntity = _repository.Create(personEntity); 
+            return _converter.Parse(personEntity);
+        }
+        public PersonVO Update(PersonVO person)
+        {
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Update(personEntity);
+            return _converter.Parse(personEntity);
         }
         public void Delete(long id)
         {
             _repository.Delete(id);
         }
-        public List<Person> FiendAll()
+        public List<PersonVO> FiendAll()
         {
-            return _repository.FiendAll();
+            return _converter.Parse(_repository.FiendAll());
         }
-        public Person FiendByID(long id)
+        public PersonVO FiendByID(long id)
         {
-            return _repository.FiendByID(id);
-        }
-        public Person Update(Person person)
-        {
-            return _repository.Update(person);
+            return _converter.Parse(_repository.FiendByID(id));
         }
     }
 }

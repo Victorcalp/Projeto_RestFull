@@ -1,14 +1,14 @@
-﻿using Projeto_RestFull.Model;
+﻿using Projeto_RestFull.Data.VO;
 using System.Collections.Generic;
 
 namespace Projeto_RestFull.Business
 {
     public interface IPersonBusiness
     {
-        Person Create(Person person);
-        Person Update(Person person);
+        PersonVO Create(PersonVO person);
+        PersonVO Update(PersonVO person);
         void Delete(long id);
-        Person FiendByID(long id);
-        List<Person> FiendAll();
+        PersonVO FiendByID(long id);
+        List<PersonVO> FiendAll();
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Projeto_RestFull.Model;
 using Projeto_RestFull.Business;
+using Projeto_RestFull.Data.VO;
 
 namespace Projeto_RestFull.Controllers
 {
@@ -35,7 +36,7 @@ namespace Projeto_RestFull.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Person person)
+        public IActionResult Create([FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
             var result = _personBusiness.Create(person);
@@ -43,7 +44,7 @@ namespace Projeto_RestFull.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update([FromBody] Person person)
+        public IActionResult Update([FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
             var result = _personBusiness.Update(person);

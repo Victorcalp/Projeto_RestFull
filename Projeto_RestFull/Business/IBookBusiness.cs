@@ -1,15 +1,14 @@
-﻿using Projeto_RestFull.Model;
-using Projeto_RestFull.Model.Base;
+﻿using Projeto_RestFull.Data.VO;
 using System.Collections.Generic;
 
 namespace Projeto_RestFull.Business
 {
     public interface IBookBusiness
     {
-        Book Create(Book book);
-        Book Update(Book book);
+        BookVO Create(BookVO book);
+        BookVO Update(BookVO book);
         void Delete(long id);
-        Book FiendByID(long id);
-        List<Book> FiendAll();
+        BookVO FiendByID(long id);
+        List<BookVO> FiendAll();
     }
 }
