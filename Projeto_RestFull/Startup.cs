@@ -13,6 +13,8 @@ using System;
 using MySqlConnector;
 using System.Collections.Generic;
 using Projeto_RestFull.Repository.Generic;
+using Microsoft.Extensions.Options;
+using Microsoft.Net.Http.Headers;
 
 namespace Projeto_RestFull
 {
@@ -57,6 +59,14 @@ namespace Projeto_RestFull
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Projeto_RestFull", Version = "v1" });
             });
+
+            services.AddMvc(options =>
+            {
+                options.RespectBrowserAcceptHeader = true;
+                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("application/xml"));
+                options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
+            }).AddXmlSerializerFormatters();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
